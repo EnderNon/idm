@@ -1,0 +1,54 @@
+/* Adapted from Temani Afif on Sitepoint*/
+/* https://www.sitepoint.com/css-custom-range-slider/ */
+/* Accessed 07.02.2025 */
+
+.sliding {
+    --slide-accent: var(--fr-500); /* active color */
+    --slide-thumb-accent: var(--fr-400); /* active color */
+    --slide-hover-col: var(--fr-250);
+    --slide-line-thickness: 0.6em; /* line thickness*/
+    --slide-line-col: var(--fr-800);
+    --slide-thumb-height: 1.7em; /* thumb height */
+    --slide-thumb-width: 0.7em; /* thumb width */
+
+    width: max-content;
+    height: var(--slide-thumb-height); /* needed for Firefox*/
+    --slide-hover-mixer: color-mix(in srgb, var(--slide-accent), var(--slide-hover-col) var(--slide-hover-opacity,0%));
+    -webkit-appearance :none;
+    -moz-appearance :none;
+    appearance :none;
+    background: none !important;
+    cursor: pointer;
+    overflow: hidden;
+    border: none !important;
+}
+.sliding:focus-visible,
+.sliding:hover{
+    --slide-hover-opacity: 100%;
+}
+
+/* chromium */
+.sliding::-webkit-slider-thumb{
+    height: var(--slide-thumb-height);
+    width: var(--slide-thumb-width);
+    background: var(--slide-hover-mixer);
+    border-image: linear-gradient(90deg,var(--slide-hover-mixer) 50%,var(--slide-hover-col) 0) 0 1/calc(50% - var(--slide-line-thickness)/2) 100vw/0 100vw;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: 0s;
+}
+/* Firefox */
+.sliding::-moz-range-thumb {
+    height: var(--slide-thumb-height);
+    width: var(--slide-thumb-width);
+    background: var(--slide-hover-mixer);
+    border-image: linear-gradient(90deg,var(--slide-hover-mixer) 50%,var(--slide-line-col) 0) 0 1/calc(50% - var(--slide-line-thickness)/2) 100vw/0 100vw;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: 0s;
+}
+@supports not (color: color-mix(in srgb,red,red)) {
+    .sliding {
+        --slide-hover-mixer: var(--slide-accent);
+    }
+}

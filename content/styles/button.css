@@ -1,0 +1,9 @@
+.buttons {
+    background-color: var(--fr-700);
+    border-color: var(--fr-300);
+    border-width: 0.15em;
+    color: var(--fr-50);
+}
+.buttons:hover {
+    background-color: var(--fr-400);
+}

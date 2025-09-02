@@ -1,0 +1,16 @@
+{
+  "name": "ID Mangler",
+  "description": "A true mangler of identifications (Web Edition)",
+  "start_url": "/",
+  "lang": "en-GB",
+  "theme_color": "#5c2e99",
+  "display": "standalone",
+  "background_color": "#000000",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "content/img/logo-512.png",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link data-trunk rel="copy-dir" href="content">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+        integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+
+    <link data-trunk rel="css" href="content/styles/reset.css">
+    <link data-trunk rel="css" href="content/styles/styles.css">
+    <link data-trunk rel="css" href="content/styles/check.css">
+    <link data-trunk rel="css" href="content/styles/slider.css">
+    <link data-trunk rel="css" href="content/styles/powder.css">
+    <link data-trunk rel="css" href="content/styles/button.css">
+
+    <title>WynntilsIDM</title>
+    <link rel="icon" href="content/img/wyntil.svg">
+
+    <link data-trunk rel="copy-file" href="manifest.json">
+
+    <script>
+        /*
+        I get some weird error if I don't just put this in. Apparently:
+            " Layout was forced before the page was fully 
+            loaded. If stylesheets are not yet loaded 
+            this may cause a flash of unstyled content. "
+        This is here to fix that by delaying it.
+        */
+
+        let FF_FOUC_FIX = 0;
+    </script>
+</head>
+
+<body></body>
+
+</html>

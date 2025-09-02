@@ -1,0 +1,420 @@
+:root {
+    /* colours */
+    --text: var(--fr-200);
+    --text-upper: var(--fr-100);
+    --border: var(--fr-550);
+
+    --bg-outer: #000;
+    --bg-upper: var(--fr-850);
+    --bg-lower: var(--fr-950);
+
+    /* sizing */
+    --border-curve: 0.6em;
+    --pad-small: 0.5vh 0.3vw;
+    --pad: 1vh 0.5vw;
+    --pad-big: 1.5vh 1vw;
+    --inner-lower-width: 35%;
+    --gap-big: 0.5%;
+    --gap-small: 0.3em;
+
+    /* Link stuff */
+    a:link {
+        color: #af6de1
+    }
+
+    a:visited {
+        color: #af6de190
+    }
+
+    a:hover {
+        color: var(--fr-50)
+    }
+
+    a {
+        font-weight: bold
+    }
+
+    a,
+    p {
+        margin: 0 0.2em
+    }
+}
+
+.nomargin {
+    margin: 0 0 !important;
+}
+
+div {
+    transition: is ease-in-out;
+    border-width: 0.2em !important;
+}
+
+* {
+    --title: Arial
+}
+
+/* DO NOT TOUCH THESE STYLES*/
+:root {
+    /* direction based */
+    /* the corner order is: northwest, northeast, southeast, southwest */
+    /* or in other words, clockwise, starting northwest*/
+    --border-curve-all: var(--border-curve);
+    --border-curve-nw: var(--border-curve) 0 0 0;
+    --border-curve-north: var(--border-curve) var(--border-curve) 0 0;
+    --border-curve-ne: 0 var(--border-curve) 0 0;
+    --border-curve-east: 0 var(--border-curve) var(--border-curve) 0;
+    --border-curve-se: 0 0 var(--border-curve) 0;
+    --border-curve-south: 0 0 var(--border-curve) var(--border-curve);
+    --border-curve-sw: 0 0 0 var(--border-curve);
+    --border-curve-west: var(--border-curve) 0 0 var(--border-curve);
+    /* colour extension*/
+    --fr-950: #120720;
+    --fr-50: #f0e5ff;
+
+    /* copied over from https://git.frfrnocap.men/endernon/ender-theme */
+    --fr-900: #1a0d2b;
+    --fr-850: #23123b;
+    --fr-800: #2d164a;
+    --fr-750: #361b5a;
+    --fr-700: #40206a;
+    --fr-650: #492579;
+    --fr-600: #532989;
+    --fr-550: #5c2e99;
+    --fr-500: #6633a8;
+    --fr-450: #6f38b8;
+    --fr-400: #793fc5;
+    --fr-350: #844fca;
+    --fr-300: #8f5ece;
+    --fr-250: #9a6ed3;
+    --fr-200: #b08ddd;
+    --fr-150: #c6ade6;
+    --fr-100: #dbccf0;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0 0;
+
+    background-color: var(--bg-outer);
+    color: var(--text);
+    max-height: 100vh;
+}
+
+.outer {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh !important;
+
+    justify-self: center;
+    gap: var(--gap-big)
+}
+
+.upper {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+
+    border-bottom: solid var(--border);
+
+    width: 100%;
+    height: min-content;
+    max-height: 5vh;
+
+    justify-self: flex-start;
+
+    background-color: var(--bg-upper);
+    color: var(--text-upper);
+
+    .upper-left {
+        display: flex;
+        box-sizing: border-box;
+
+        width: max-content;
+        height: 100%;
+
+        padding: var(--pad);
+        justify-self: flex-start;
+
+    }
+
+    ;
+
+    .upper-middle {
+        display: flex;
+        box-sizing: border-box;
+
+        justify-content: center;
+
+        height: 100%;
+        flex-grow: 1;
+
+        padding: var(--pad);
+    }
+
+    .upper-right {
+        display: flex;
+        box-sizing: border-box;
+
+        height: 100%;
+
+        padding: var(--pad);
+        justify-self: flex-end;
+        justify-content: flex-end;
+
+        flex-direction: row;
+
+        /* Seperator between stuff on the top right*/
+        :not(:first-child) {
+            border-left: var(--fr-650);
+            border-left-width: 2px;
+            border-top-width: 0;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            border-style: solid;
+            margin-left: 0;
+        }
+
+        /* gaps between the seperator and texts*/
+        >* {
+            padding-left: 0.5em;
+            padding-right: 0.4em;
+            /* this one is slightly less because of some weird spacing inconsistency otherwise */
+        }
+
+    }
+
+    ;
+}
+
+.lower {
+    display: flex;
+    box-sizing: border-box;
+
+    flex-direction: row;
+    flex-grow: 1;
+
+    gap: var(--gap-big);
+
+    flex-shrink: 1;
+
+    min-height: 0;
+
+    .lower-section {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+
+        height: 100%;
+        width: var(--inner-lower-width);
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        .lower-section-title {
+            box-sizing: border-box;
+            border-color: var(--border) var(--border) var(--border);
+            border-style: solid solid none solid;
+            border-radius: var(--border-curve-north);
+            padding: 0 0.8vw;
+
+            height: min-content;
+            width: 100%;
+
+            background-color: var(--bg-lower);
+        }
+
+        ;
+
+
+        /* normally lower-section has two things:
+             - lower-section-title
+             - lower-section-content
+           but if an item preview occurs, then theres a second lower-section-content.
+           Thus,
+             - Select middle element (neither first nor last) to have no curve.
+               - This is the potential item render.
+             - Select last element to have south curve.
+               - This is the item preview. It always will be.
+        */
+
+        .lower-section-content {
+            background-color: var(--bg-lower);
+            padding: var(--pad);
+        }
+
+
+
+        .lower-section-content:nth-child(2) {
+            border: solid var(--border);
+            border-bottom: none;
+            border-radius: 0 0 0 0;
+
+            flex-grow: 1;
+        }
+
+        .lower-section-content:last-child {
+            border: solid var(--border);
+            border-radius: var(--border-curve-south);
+            height: min-content;
+            overflow-y: auto;
+        }
+
+        ;
+
+    }
+
+    ;
+
+    :first-child {
+        .lower-section-title {
+            border-radius: var(--border-curve-ne) !important;
+        }
+
+        .lower-section-content {
+            border-radius: var(--border-curve-se) !important;
+        }
+    }
+
+    ;
+
+    :last-child {
+        .lower-section-title {
+            border-radius: var(--border-curve-nw);
+        }
+
+        .lower-section-content:last-child {
+            border-radius: var(--border-curve-sw);
+
+        }
+    }
+
+    ;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(5%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+.fade-in-up {
+    animation: 0.75s fadeInUp;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+
+    h1 {
+        font-size: 5em;
+    }
+
+    img {
+        animation: rotation 0.5s infinite ease-in-out;
+        align-content: center;
+        top: 50%;
+        width: 20vw;
+
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg)
+    }
+}
+
+input {
+    /* I don't like doing !important, but it's entirely necessary to override purecss*/
+    padding: 1% 2%;
+    border: 0.2em solid var(--fr-600) !important;
+    border-radius: 0.2em !important;
+    background-color: var(--fr-800) !important;
+    box-shadow: none !important;
+    color: var(--fr-50);
+    margin: 1% 0;
+}
+
+:checked {
+    padding: 1% 2%;
+    border: 0.2em solid var(--fr-600);
+    border-radius: 0.2em;
+    background-color: var(--fr-800);
+    color: var(--fr-50)
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 0.2em solid var(--fr-50) !important;
+}
+
+
+
+.dual-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    /* The idea is that text is first, followed by input*/
+    .text {
+        display: flex;
+        align-items: center;
+    }
+
+    .input {
+        width: min-content;
+    }
+
+    flex-wrap: wrap;
+}
+
+/* hide the arrows / spinners on num input fields*/
+/* from W3Schools: "How TO - Hide Arrows From Input Number */
+/* https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp */
+/* Accessed 08.02.2025*/
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.disappear {
+    height: 0 !important;
+    display: none;
+    width: 0 !important;
+}
+
+select {
+    background-color: var(--fr-700);
+    border-color: var(--fr-300);
+    color: var(--fr-50);
+}
